@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemanth Kumar R - Visual Engineer & Innovator</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --bg-deep-void: #05080D;   /* Even deeper, almost black */
+            --bg-primary: #0A0F14;     /* Primary dark background - bluish dark */
+            --bg-secondary: #12181E;   /* Slightly lighter for sections */
+            --bg-card: #1A2228;        /* Card backgrounds - subtle texture */
+            --bg-card-hover: #222B31;
+            
+            --text-primary: #D0D8E0;   /* Light grayish blue */
+            --text-secondary: #90A0B0; /* Softer, muted blue-gray */
+            --text-headings: #E8EFF5;  /* Bright, almost white for headings */
+            
+            --accent-primary: #00CFE8; /* Vibrant Cyan/Turquoise */
+            --accent-secondary: #00A8BF;/* Darker Cyan for hover/depth */
+            --accent-tertiary: #FF6B6B; /* Warm Coral for contrast (use sparingly) */
+            --accent-photography: #FFA500; /* Orange for photography elements */
+
+            --border-color: #2A343C;   /* Subtle, dark borders */
+            --shadow-color: rgba(0, 207, 232, 0.1); /* Cyan glow */
+            --dark-shadow-color: rgba(0, 0, 0, 0.3);
+
+            --font-display: 'Playfair Display', serif; /* For main headings, photographer style */
+            --font-heading: 'Raleway', sans-serif;      /* For subheadings and titles */
+            --font-body: 'Raleway', sans-serif;         /* For body text */
+            --font-code: 'Roboto Mono', monospace;     /* For code-like elements/tags */
+
+            --transition-fast: 0.2s;
+            --transition-medium: 0.4s;
+            --transition-slow: 0.6s;
+            --transition-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        /* Basic Reset & Global Styles */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text-headings);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        h1 { font-family: var(--font-display); font-size: 4rem; letter-spacing: -1px; }
+        h2 { font-size: 2.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;}
+        h3 { font-size: 1.9rem; font-weight: 600; color: var(--accent-primary); }
+        h4 { font-size: 1.4rem; font-weight: 500; color: var(--text-headings); }
+
+        p { margin-bottom: 1.2rem; color: var(--text-secondary); font-size: 1rem; font-weight: 400; }
+        a { color: var(--accent-primary); text-decoration: none; transition: color var(--transition-medium) var(--transition-ease); }
+        a:hover { color: var(--accent-secondary); }
+        ul { list-style: none; }
+        svg { display: block; max-width: 100%; height: auto; }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        section:nth-child(even) { background-color: var(--bg-primary); }
+        section:last-of-type { border-bottom: none; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        .section-title h2 { margin-bottom: 15px; }
+        .section-title::before { /* Top line */
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        .section-title::after { /* Bottom line */
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-primary);
+            border-radius: 2px;
+            box-shadow: 0 0 15px var(--shadow-color);
+        }
+        .section-subtitle {
+            text-align: center;
+            max-width: 750px;
+            margin: -45px auto 60px auto;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background-color: rgba(10, 15, 20, 0.6); 
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            z-index: 1000;
+            transition: background-color var(--transition-medium) var(--transition-ease), 
+                        padding var(--transition-medium) var(--transition-ease),
+                        box-shadow var(--transition-medium) var(--transition-ease);
+            border-bottom: 1px solid transparent; /* For scrolled state */
+        }
+        .navbar.scrolled {
+            background-color: rgba(18, 24, 30, 0.85);
+            padding: 1rem 0;
+            box-shadow: 0 5px 25px var(--dark-shadow-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-headings);
+            letter-spacing: 0.5px;
+            transition: transform var(--transition-medium) var(--transition-ease);
+        }
+        .nav-logo:hover { transform: scale(1.05); }
+        .nav-logo span { color: var(--accent-primary); font-style: italic;}
+
+        .nav-links { display: flex; }
+        .nav-links li { margin-left: 35px; }
+        .nav-links a {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 10px 0;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color var(--transition-fast) var(--transition-ease);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-primary);
+            transition: width var(--transition-medium) var(--transition-ease), left var(--transition-medium) var(--transition-ease), transform var(--transition-medium) var(--transition-ease);
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-primary); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; left: 0; transform: translateX(0); }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--text-headings);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+            transition: transform var(--transition-medium) var(--transition-ease);
+        }
+        .menu-toggle:hover { transform: rotate(90deg) scale(1.1); }
+        .menu-toggle .fa-bars, .menu-toggle .fa-times { transition: opacity var(--transition-fast), transform var(--transition-medium); }
+        .menu-toggle.active .fa-bars { opacity: 0; transform: rotate(-90deg); }
+        .menu-toggle.active .fa-times { opacity: 1; transform: rotate(0deg); }
+        .menu-toggle .fa-times { opacity: 0; position: absolute; left: 8px; top: 8px; transform: rotate(90deg); }
+
+
+        /* Hero Section - SVG Background */
+        #hero {
+            height: 100vh;
+            min-height: 750px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            color: var(--text-headings);
+            padding-top: 80px; 
+            background-color: var(--bg-deep-void); /* Fallback */
+            border-bottom: 2px solid var(--accent-primary);
+        }
+        #hero::before { /* SVG background pattern */
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, var(--accent-secondary) 1px, transparent 1px),
+                radial-gradient(circle at 90% 80%, var(--accent-secondary) 1px, transparent 1px),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232A343C' fill-opacity='0.1'%3E%3Cpath d='M30 0h30v30H30zM0 30h30v30H0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-size: 100px 100px, 120px 120px, 30px 30px;
+            opacity: 0.3;
+            z-index: 0;
+            animation: subtleGradientShift 20s ease infinite alternate;
+        }
+        @keyframes subtleGradientShift {
+            0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
+            100% { background-position: 20% 20%, -20% -20%, 10% 10%; }
+        }
+
+        .hero-content {
+            position: relative; /* Above SVG pattern */
+            z-index: 1;
+            max-width: 850px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroContentFadeIn 1s var(--transition-ease) 0.5s forwards;
+        }
+        @keyframes heroContentFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        #hero h1 {
+            font-size: 4.5rem; 
+            margin-bottom: 0.8rem;
+            line-height: 1.1;
+            color: var(--text-headings);
+            font-weight: 700; /* Ensure Hemanth is bold */
+        }
+        #hero h1 strong { /* Explicitly style strong for Hemanth if used */
+            font-weight: 700;
+            color: var(--text-headings); /* Keep consistent */
+        }
+        #hero h1 .highlight-name {
+            display: inline-block;
+            position: relative;
+            color: var(--accent-primary);
+        }
+        #hero h1 .highlight-name::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-tertiary);
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: drawUnderline 0.8s var(--transition-ease) 1.2s forwards;
+        }
+        @keyframes drawUnderline {
+            to { transform: scaleX(1); }
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-subtitle .highlight {
+            color: var(--accent-photography);
+            font-weight: 600;
+        }
+        
+        .hero-contact-links {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+        .hero-contact-links a {
+            color: var(--text-primary);
+            font-size: 1.6rem;
+            transition: color var(--transition-medium) var(--transition-ease), transform var(--transition-medium) var(--transition-bounce);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+        }
+        .hero-contact-links a:hover {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 0 20px var(--shadow-color);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+            color: var(--bg-deep-void);
+            padding: 16px 40px;
+            border-radius: 50px; /* Pill shape */
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2.5rem;
+            transition: transform var(--transition-medium) var(--transition-bounce), 
+                        box-shadow var(--transition-medium) var(--transition-ease);
+            box-shadow: 0 5px 20px rgba(0, 207, 232, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left var(--transition-slow) var(--transition-ease);
+        }
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 207, 232, 0.5);
+        }
+        .cta-button:hover::before { left: 100%; }
+        
+        /* About Section - With SVG Illustration */
+        #about { background-color: var(--bg-secondary); }
+        .about-content {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-svg-container {
+            width: 100%;
+            max-width: 400px; /* Control SVG size */
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: aboutSvgFadeIn 1s var(--transition-ease) 0.5s forwards;
+        }
+        @keyframes aboutSvgFadeIn {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .about-svg-container svg #camera-body, 
+        .about-svg-container svg #gear-main,
+        .about-svg-container svg #brain-lines path {
+            transition: transform var(--transition-medium) var(--transition-ease), fill var(--transition-medium) var(--transition-ease);
+        }
+        .about-svg-container:hover svg #camera-body { transform: rotate(5deg) scale(1.05); fill: var(--accent-photography); }
+        .about-svg-container:hover svg #gear-main { transform: rotate(30deg) scale(1.1); fill: var(--accent-primary); }
+        .about-svg-container:hover svg #brain-lines path { stroke-width: 3; }
+
+        .about-text {
+             opacity: 0;
+            transform: translateX(50px);
+            animation: aboutTextFadeIn 1s var(--transition-ease) 0.7s forwards;
+        }
+         @keyframes aboutTextFadeIn {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .about-text h3 { margin-bottom: 0.5rem; color: var(--text-headings); font-size: 2.2rem; font-family: var(--font-display); }
+        .about-text .role-title {
+            font-size: 1.4rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-family: var(--font-heading);
+        }
+        .about-text p { font-size: 1.05rem; line-height: 1.8; }
+        .about-details ul { margin-top: 25px; }
+        .about-details ul li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: color var(--transition-fast) var(--transition-ease);
+        }
+        .about-details ul li:hover { color: var(--text-primary); }
+        .about-details ul li i {
+            color: var(--accent-primary);
+            margin-right: 15px;
+            font-size: 1.3rem;
+            width: 25px;
+            text-align: center;
+            transition: transform var(--transition-fast) var(--transition-ease);
+        }
+        .about-details ul li:hover i { transform: scale(1.2) rotate(-10deg); }
+        .about-details ul li strong { color: var(--text-primary); margin-right: 8px; font-weight: 600;}
+
+        /* Education & Internships Section - Timeline Style */
+        .timeline-section { background-color: var(--bg-primary); }
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
+        .timeline::after { /* The central line */
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent-secondary) 0%, var(--accent-primary) 50%, var(--accent-secondary) 100%);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            z-index: 1;
+            box-shadow: 0 0 15px var(--shadow-color);
+            animation: drawTimelineLine 2s var(--transition-ease) forwards;
+            transform-origin: top;
+            transform: scaleY(0);
+        }
+        @keyframes drawTimelineLine { to { transform: scaleY(1); } }
+
+        .timeline-item {
+            padding: 15px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        /* Staggered animation for timeline items */
+        .timeline-item.animate-in { animation: timelineItemFadeIn 0.8s var(--transition-ease) forwards; }
+        @keyframes timelineItemFadeIn { to { opacity: 1; transform: translateY(0); } }
+
+        .timeline-item::after { /* The circles on the timeline */
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: -12px;
+            background-color: var(--bg-card);
+            border: 4px solid var(--accent-primary);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 2;
+            transition: transform var(--transition-medium) var(--transition-bounce), background-color var(--transition-medium) var(--transition-ease), box-shadow var(--transition-medium) var(--transition-ease);
+            box-shadow: 0 0 0px var(--shadow-color);
+        }
+        .timeline-item:hover::after {
+            transform: scale(1.3);
+            background-color: var(--accent-primary);
+            box-shadow: 0 0 15px var(--shadow-color);
+        }
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+        .timeline-item.right::after { left: -12px; }
+
+        .timeline-content {
+            padding: 30px 35px;
+            background-color: var(--bg-card);
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--dark-shadow-color);
+            transition: transform var(--transition-medium) var(--transition-ease), box-shadow var(--transition-medium) var(--transition-ease);
+            border-left: 5px solid var(--accent-secondary);
+        }
+        .timeline-item.right .timeline-content { border-left: none; border-right: 5px solid var(--accent-secondary); }
+        .timeline-content:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 40px var(--dark-shadow-color), 0 0 20px var(--shadow-color);
+        }
+        .timeline-content .tag {
+            display: inline-block;
+            background-color: var(--accent-photography);
+            color: var(--bg-deep-void);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .timeline-content h4 { color: var(--text-headings); font-size: 1.5rem; margin-bottom: 6px; }
+        .timeline-content .sub-heading { font-size: 1.1rem; color: var(--accent-primary); margin-bottom: 10px; font-weight: 500; }
+        .timeline-date { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 18px; font-style: italic; font-family: var(--font-code); }
+        .timeline-description p, .timeline-description ul { font-size: 0.95rem; color: var(--text-secondary); }
+        .timeline-description ul { padding-left: 0; list-style: none; }
+        .timeline-description ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        .timeline-description ul li::before {
+            content: "\f105"; /* FontAwesome angle-right */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: var(--accent-photography);
+            transition: transform var(--transition-fast) var(--transition-ease);
+        }
+        .timeline-description ul li:hover::before { transform: translateX(3px); }
+
+
+        /* Portfolio / Projects Section - SVG Placeholders */
+        #portfolio { background-color: var(--bg-secondary); }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px var(--dark-shadow-color);
+            cursor: pointer;
+            background-color: var(--bg-card);
+            aspect-ratio: 4 / 3; /* Maintain aspect ratio */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: transform var(--transition-medium) var(--transition-ease), box-shadow var(--transition-medium) var(--transition-ease), background-color var(--transition-medium) var(--transition-ease);
+        }
+        .portfolio-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px var(--dark-shadow-color), 0 0 25px var(--shadow-color);
+            background-color: var(--bg-card-hover);
+        }
+        .portfolio-svg-placeholder {
+            width: 80px; /* Adjust size as needed */
+            height: 80px;
+            margin-bottom: 15px;
+        }
+        .portfolio-svg-placeholder svg {
+            width: 100%; height: 100%;
+            fill: var(--accent-primary);
+            transition: fill var(--transition-medium) var(--transition-ease), transform var(--transition-medium) var(--transition-ease);
+        }
+        .portfolio-item:hover .portfolio-svg-placeholder svg {
+            fill: var(--accent-photography);
+            transform: rotate(10deg) scale(1.1);
+        }
+        .portfolio-item-content { text-align: center; }
+        .portfolio-item-content h3 {
+            color: var(--text-headings);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            transition: color var(--transition-medium) var(--transition-ease);
+        }
+        .portfolio-item:hover .portfolio-item-content h3 { color: var(--accent-primary); }
+        .portfolio-item-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            font-family: var(--font-code);
+        }
+        .portfolio-item .category-tag {
+            position: absolute;
+            top: 15px;
+            right: -50px; /* Start off-screen */
+            background-color: var(--accent-tertiary);
+            color: var(--bg-deep-void);
+            padding: 6px 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 20px 0 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transition: right var(--transition-medium) var(--transition-ease), opacity var(--transition-medium) var(--transition-ease);
+        }
+         .portfolio-item:hover .category-tag { right: 0; opacity: 1; }
+
+        /* Modal for Portfolio Item Details */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            overflow: auto;
+            background-color: rgba(5, 8, 13, 0.9); /* Darker void-like backdrop */
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: var(--bg-card);
+            margin: auto;
+            padding: 35px 45px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 750px;
+            position: relative;
+            animation: modalZoomIn 0.5s var(--transition-bounce);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            border-top: 5px solid var(--accent-primary);
+        }
+        @keyframes modalZoomIn {
+            from { opacity: 0; transform: scale(0.8) translateY(50px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .modal-close {
+            color: var(--text-secondary);
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.2rem;
+            font-weight: bold;
+            transition: color var(--transition-fast) var(--transition-ease), transform var(--transition-fast) var(--transition-ease);
+        }
+        .modal-close:hover, .modal-close:focus {
+            color: var(--accent-tertiary);
+            transform: rotate(90deg) scale(1.1);
+            cursor: pointer;
+        }
+        .modal-content h3 { margin-top: 0; margin-bottom: 25px; font-size: 2.2rem; font-family: var(--font-display); }
+        .modal-content .modal-svg-display {
+            width: 100px; height: 100px; margin: 0 auto 25px auto;
+        }
+        .modal-content .modal-svg-display svg { width: 100%; height: 100%; fill: var(--accent-photography); }
+
+        .modal-content p { font-size: 1rem; line-height: 1.8; }
+        .modal-tags { margin-top: 20px; }
+        .modal-tags span {
+            display: inline-block;
+            background-color: var(--bg-secondary);
+            color: var(--accent-primary);
+            font-family: var(--font-code);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+            transition: background-color var(--transition-fast) var(--transition-ease), color var(--transition-fast) var(--transition-ease);
+        }
+        .modal-tags span:hover { background-color: var(--accent-primary); color: var(--bg-deep-void); }
+
+
+        /* Skills Section - Modern Grid */
+        #skills { background-color: var(--bg-primary); }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        .skill-card {
+            background-color: var(--bg-card);
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px var(--dark-shadow-color);
+            transition: transform var(--transition-medium) var(--transition-ease), box-shadow var(--transition-medium) var(--transition-ease);
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-card::before { /* Decorative accent */
+            content: '';
+            position: absolute;
+            top: -50px; left: -50px;
+            width: 100px; height: 100px;
+            background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity var(--transition-medium) var(--transition-ease), transform var(--transition-medium) var(--transition-ease);
+        }
+        .skill-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px var(--dark-shadow-color), 0 0 20px var(--shadow-color);
+        }
+        .skill-card:hover::before { opacity: 0.2; transform: scale(1); }
+        .skill-card .skill-icon {
+            font-size: 2.8rem;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform var(--transition-medium) var(--transition-bounce);
+        }
+        .skill-card:hover .skill-icon { transform: rotateY(360deg) scale(1.1); }
+
+        .skill-card h4 { font-size: 1.5rem; margin-bottom: 18px; color: var(--text-headings); }
+        .skill-card ul li {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            padding-left: 25px;
+            position: relative;
+        }
+        .skill-card ul li::before {
+            content: "\f058"; /* FontAwesome check-circle */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 400; /* Regular for circle */
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--accent-photography);
+            font-size: 1.1em;
+        }
+        .software-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;}
+        .software-list span {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: var(--font-code);
+            padding: 7px 14px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: background-color var(--transition-fast) var(--transition-ease), color var(--transition-fast) var(--transition-ease), transform var(--transition-fast) var(--transition-ease);
+        }
+        .software-list span:hover {
+            background-color: var(--accent-photography);
+            color: var(--bg-deep-void);
+            transform: translateY(-2px);
+        }
+
+        /* Workshops & Courses Section */
+        #workshops { background-color: var(--bg-secondary); }
+        .workshops-list .workshop-item {
+            background-color: var(--bg-card);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--dark-shadow-color);
+            transition: transform var(--transition-medium) var(--transition-ease), box-shadow var(--transition-medium) var(--transition-ease);
+            border-left: 5px solid var(--accent-secondary);
+        }
+        .workshops-list .workshop-item:hover {
+            transform: translateX(8px) scale(1.01);
+            box-shadow: 0 8px 20px var(--dark-shadow-color), 0 0 10px var(--shadow-color);
+        }
+        .workshop-item h4 { margin-bottom: 8px; color: var(--accent-primary); font-size: 1.3rem; }
+        .workshop-item .issuer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-style: italic;
+            font-family: var(--font-heading);
+            font-weight: 500;
+        }
+        .workshop-item p { font-size: 0.95rem; margin-bottom: 0; }
+
+
+        /* Extracurriculars & Responsibilities */
+        #activities { background-color: var(--bg-primary); }
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .activity-card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px var(--dark-shadow-color);
+            transition: transform var(--transition-medium) var(--transition-ease), background-color var(--transition-medium) var(--transition-ease);
+            border-bottom: 4px solid transparent;
+        }
+        .activity-card:hover {
+            transform: translateY(-8px);
+            background-color: var(--bg-card-hover);
+            border-bottom-color: var(--accent-tertiary);
+        }
+        .activity-card h4 { color: var(--accent-photography); margin-bottom: 15px; font-size: 1.3rem;}
+        .activity-card ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+        .activity-card ul li::before {
+            content: "\f005"; /* FontAwesome star */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--accent-primary);
+            transition: transform var(--transition-fast) var(--transition-ease);
+        }
+        .activity-card ul li:hover::before { transform: rotate(15deg) scale(1.2); }
+
+        /* Hobbies Section - SVG Icons */
+        #hobbies { background-color: var(--bg-secondary); text-align: center; }
+        .hobbies-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; }
+        .hobby-item {
+            text-align: center;
+            width: 160px;
+            transition: transform var(--transition-medium) var(--transition-ease);
+            opacity: 0; transform: scale(0.8); /* For animation */
+        }
+        .hobby-item.animate-in { animation: hobbyItemPopIn 0.5s var(--transition-bounce) forwards; }
+        @keyframes hobbyItemPopIn { to { opacity: 1; transform: scale(1); } }
+
+        .hobby-icon-wrapper {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background-color: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 8px 20px var(--dark-shadow-color);
+            transition: background-color var(--transition-medium) var(--transition-ease), transform var(--transition-medium) var(--transition-ease);
+        }
+        .hobby-item:hover .hobby-icon-wrapper {
+            background-color: var(--accent-photography);
+            transform: translateY(-5px) rotate(10deg);
+        }
+        .hobby-icon-wrapper svg {
+            width: 50px; height: 50px;
+            fill: var(--accent-primary);
+            transition: fill var(--transition-medium) var(--transition-ease), transform var(--transition-medium) var(--transition-ease);
+        }
+         .hobby-item:hover .hobby-icon-wrapper svg {
+            fill: var(--bg-deep-void);
+            transform: scale(1.1);
+        }
+        .hobby-item p {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        #contact { background-color: var(--bg-primary); }
+        .contact-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .contact-content p { font-size: 1.15rem; margin-bottom: 35px; }
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 45px;
+        }
+        .contact-info-item {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--dark-shadow-color);
+            transition: transform var(--transition-medium) var(--transition-ease), box-shadow var(--transition-medium) var(--transition-ease);
+            border-bottom: 4px solid var(--accent-secondary);
+        }
+        .contact-info-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px var(--dark-shadow-color), 0 0 15px var(--shadow-color);
+        }
+        .contact-info-item i {
+            font-size: 2.2rem;
+            color: var(--accent-primary);
+            margin-bottom: 18px;
+            transition: transform var(--transition-medium) var(--transition-bounce);
+        }
+        .contact-info-item:hover i { transform: scale(1.2) rotate(-15deg); }
+        .contact-info-item h4 { margin-bottom: 8px; font-size: 1.3rem; color: var(--text-headings); }
+        .contact-info-item a, .contact-info-item span {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            word-break: break-all;
+            font-family: var(--font-code);
+            display: block; /* Ensure link takes full width for easier click */
+        }
+        .contact-info-item a:hover { color: var(--accent-primary); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--bg-deep-void);
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-headings);
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .footer-logo span { color: var(--accent-primary); font-style: italic;}
+
+        .footer-social-links { margin-bottom: 25px; }
+        .footer-social-links a {
+            color: var(--text-secondary);
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: color var(--transition-medium) var(--transition-ease), transform var(--transition-medium) var(--transition-bounce);
+        }
+        .footer-social-links a:hover { color: var(--accent-primary); transform: scale(1.3) translateY(-3px); }
+        footer p { margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        footer .heart-icon { color: var(--accent-tertiary); animation: pulseHeart 1.8s infinite ease-in-out; }
+        @keyframes pulseHeart { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+
+        /* Scroll Reveal Animations */
+        .reveal-on-scroll { opacity: 0; transform: translateY(50px); transition: opacity 0.8s var(--transition-ease), transform 0.8s var(--transition-ease); }
+        .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-on-scroll.delay-1 { transition-delay: 0.15s; }
+        .reveal-on-scroll.delay-2 { transition-delay: 0.3s; }
+        .reveal-on-scroll.delay-3 { transition-delay: 0.45s; }
+        .reveal-on-scroll.delay-4 { transition-delay: 0.6s; }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-content { grid-template-columns: 1fr; text-align: center; }
+            .about-svg-container { max-width: 300px; margin-bottom: 40px; }
+            .about-details ul li { justify-content: center; }
+            .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            html { font-size: 15px; }
+            h1 { font-size: 3.2rem; } #hero h1 { font-size: 3.5rem; }
+            .section-title h2 { font-size: 2.4rem; }
+            
+            .navbar { padding: 1.2rem 0; }
+            .nav-links {
+                position: fixed; top: 0; left: -100%;
+                width: 80%; max-width: 320px; height: 100vh;
+                background-color: var(--bg-secondary);
+                flex-direction: column; align-items: flex-start;
+                padding: 100px 40px 40px 40px;
+                transition: left 0.5s var(--transition-ease);
+                box-shadow: 5px 0 20px rgba(0,0,0,0.4);
+                overflow-y: auto;
+            }
+            .nav-links.active { left: 0; }
+            .nav-links li { margin: 0; width: 100%; }
+            .nav-links a { display: block; padding: 18px 0; font-size: 1.1rem; border-bottom: 1px solid var(--border-color); }
+            .nav-links li:last-child a { border-bottom: none; }
+            .nav-links a::after { display: none; }
+            .menu-toggle { display: block; }
+
+            #hero { text-align: center; }
+            .hero-content { padding: 0 10px; }
+            .hero-subtitle { font-size: 1.3rem; }
+
+            .timeline::after { left: 30px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 20px; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 18px; }
+            .timeline-item.right { left: 0%; }
+            .timeline-item.right .timeline-content { border-left: 5px solid var(--accent-secondary); border-right: none; }
+
+            .skills-grid, .contact-info-grid, .activities-grid { grid-template-columns: 1fr; }
+            .modal-content { width: 95%; padding: 25px; }
+            .modal-content h3 { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            html { font-size: 14px; }
+            .container { width: 95%; padding: 0 10px; }
+            #hero h1 { font-size: 2.8rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .section-title h2 { font-size: 2rem; }
+            .section-title::after { width: 80px; height: 3px; }
+            section { padding: 80px 0; }
+            .cta-button { padding: 14px 30px; font-size: 0.95rem; }
+            .timeline-content { padding: 25px; }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep-void); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-secondary); border-radius: 6px; border: 2px solid var(--bg-deep-void); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#hero" class="nav-logo">HEMANTH <span>KUMAR R</span></a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Journey</a></li>
+                <li><a href="#portfolio" class="nav-link">Showcase</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#activities" class="nav-link">Activities</a></li>
+                <li><a href="#hobbies" class="nav-link">Passions</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="highlight-name"><strong>HEMANTH</strong> KUMAR R</span>
+            </h1>
+            <p class="hero-subtitle">Mechanical Engineer with a <span class="highlight">Photographer's Eye</span> & an Innovator's Mind. <br> Fusing technical precision with creative artistry.</p>
+            <a href="#portfolio" class="cta-button">Explore My Work</a>
+            <div class="hero-contact-links">
+                <a href="tel:6381215568" aria-label="Call Hemanth"><i class="fas fa-phone-alt"></i></a>
+                <a href="mailto:hemanthkumar.25mea@licet.ac.in" aria-label="Email Hemanth"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/hemanth-kumar-licet" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="reveal-on-scroll">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Me</h2>
+                </div>
+                <p class="section-subtitle">An aspiring professional, eager to merge robust engineering expertise with a distinct creative flair in a dynamic organization. Passionate about design, manufacturing, and visual innovation.</p>
+                <div class="about-content">
+                    <div class="about-svg-container reveal-on-scroll delay-1">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBrain" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:var(--accent-primary);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:var(--accent-secondary);stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <path id="gear-main" d="M100,50 A50,50 0 0,1 100,150 A50,50 0 0,1 100,50 Z M100,60 A40,40 0 0,0 100,140 A40,40 0 0,0 100,60 Z" fill="var(--bg-card)" stroke="var(--accent-secondary)" stroke-width="3" style="filter:url(#glow)"/>
+                            <g id="gear-teeth">
+                                <rect x="96" y="35" width="8" height="30" rx="2" fill="var(--accent-secondary)" transform="rotate(0 100 100)"/>
+                                <rect x="96" y="35" width="8" height="30" rx="2" fill="var(--accent-secondary)" transform="rotate(45 100 100)"/>
+                                <rect x="96" y="35" width="8" height="30" rx="2" fill="var(--accent-secondary)" transform="rotate(90 100 100)"/>
+                                <rect x="96" y="35" width="8" height="30" rx="2" fill="var(--accent-secondary)" transform="rotate(135 100 100)"/>
+                                <rect x="96" y="35" width="8" height="30" rx="2" fill="var(--accent-secondary)" transform="rotate(180 100 100)"/>
+                                <rect x="96" y="35" width="8" height="30" rx="2" fill="var(--accent-secondary)" transform="rotate(225 100 100)"/>
+                                <rect x="96" y="35" width="8" height="30" rx="2" fill="var(--accent-secondary)" transform="rotate(270 100 100)"/>
+                                <rect x="96" y="35" width="8" height="30" rx="2" fill="var(--accent-secondary)" transform="rotate(315 100 100)"/>
+                            </g>
+                            <circle id="camera-lens" cx="100" cy="100" r="25" fill="var(--bg-deep-void)" stroke="var(--accent-photography)" stroke-width="4"/>
+                            <circle cx="100" cy="100" r="15" fill="rgba(0,0,0,0.5)" stroke="var(--accent-photography)" stroke-width="1" stroke-dasharray="2 2"/>
+                            <rect id="camera-body" x="70" y="70" width="60" height="60" rx="5" fill="var(--bg-card)" stroke="var(--accent-photography)" stroke-width="3" transform="translate(30, -30) rotate(10 100 100)" style="filter:url(#glow)"/>
+                             <g id="brain-lines" transform="translate(10, -20) scale(0.8)">
+                                <path d="M50 50 Q 70 30, 90 50 T 130 50" stroke="url(#gradBrain)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <path d="M55 60 Q 75 40, 95 60 T 135 60" stroke="url(#gradBrain)" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="3 3"/>
+                                <path d="M60 70 Q 80 50, 100 70 T 140 70" stroke="url(#gradBrain)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="about-text reveal-on-scroll delay-2">
+                        <h3><strong>HEMANTH</strong> KUMAR R</h3>
+                        <p class="role-title">Mechanical Engineer & Visual Innovator</p>
+                        <p>I am a dynamic Mechanical Engineering student at Loyola-ICAM College of Engineering and Technology (Class of 2025), driven by a dual passion for precision engineering and compelling visual storytelling. My academic pursuits in design and manufacturing are complemented by a profound interest in photography, art, and videography, enabling me to approach challenges with a unique blend of analytical rigor and creative insight.</p>
+                        <p>My journey includes hands-on fabrication experience at IITM's Central Workshop and insightful observations of aerospace operations at HAL. I am committed to lifelong learning and eager to contribute my diverse skill set to a forward-thinking organization that values innovation and multidisciplinary collaboration.</p>
+                        <div class="about-details">
+                            <ul>
+                                <li><i class="fas fa-user-tie"></i><strong>Name:</strong> <strong>HEMANTH</strong> KUMAR R</li>
+                                <li><i class="fas fa-calendar-day"></i><strong>DOB:</strong> 14/03/2003</li>
+                                <li><i class="fas fa-award"></i><strong>Degree:</strong> B.E Mechanical Engineering (Pursuing)</li>
+                                <li><i class="fas fa-map-pin"></i><strong>Location:</strong> Chennai, India (Assumed)</li>
+                                <li><i class="fas fa-atom"></i><strong>Interests:</strong> Design, Manufacturing, Photography, Aerospace, Innovation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="timeline-section reveal-on-scroll">
+            <div class="container">
+                <div class="section-title">
+                    <h2>My Journey</h2>
+                </div>
+                <p class="section-subtitle">Charting the course of my academic achievements and pivotal hands-on experiences that have sculpted my professional outlook.</p>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="tag">Education</span>
+                            <h4>LOYOLA-ICAM COLLEGE OF ENGINEERING AND TECHNOLOGY</h4>
+                            <p class="sub-heading">B.E Mechanical Engineering</p>
+                            <p class="timeline-date">2021 - 2025 (Expected)</p>
+                            <div class="timeline-description">
+                                <p>Current CGPA: <strong>7.8</strong></p>
+                                <p>Engaged in a comprehensive curriculum focusing on core mechanical principles, with a specialized interest in advanced design methodologies, innovative manufacturing processes, and emerging industrial technologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="tag">Internship</span>
+                            <h4>HINDUSTAN AERONAUTICS LIMITED (Bangalore)</h4>
+                            <p class="sub-heading">Aerospace Observational Internship</p>
+                            <p class="timeline-date">Summer 2023 (Example)</p>
+                            <div class="timeline-description">
+                                <p>Gained invaluable exposure to the operational dynamics of the aerospace sector, observing assembly and maintenance procedures for fighter jets like the Jaguar Striker and LCA. This experience provided critical insights into high-precision engineering and quality control in a demanding industrial environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="tag">Internship</span>
+                            <h4>IIT Madras (Central Fabrication Workshop)</h4>
+                            <p class="sub-heading">Student Design & Fabrication Intern</p>
+                            <p class="timeline-date">Winter 2022 (Example)</p>
+                             <div class="timeline-description">
+                                <p>Actively involved in designing and manufacturing various components for internal research projects and external collaborations. Honed practical skills in CAD modeling, material selection, and diverse fabrication techniques, including machining and 3D printing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="tag">Education</span>
+                            <h4>DAV Matric. Higher Secondary School</h4>
+                            <p class="sub-heading">HSC (Higher Secondary Certificate)</p>
+                            <p class="timeline-date">Graduated: 2021</p>
+                            <div class="timeline-description">
+                                <p>Achieved a commendable <strong>91.5%</strong>, demonstrating a strong foundation in science and mathematics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                             <span class="tag">Education</span>
+                            <h4>DAV Matric. Higher Secondary School</h4>
+                            <p class="sub-heading">SSLC (Secondary School Leaving Certificate)</p>
+                            <p class="timeline-date">Graduated: 2019</p>
+                            <div class="timeline-description">
+                                <p>Secured an outstanding <strong>93.4%</strong>, establishing a consistent record of academic excellence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="reveal-on-scroll">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Showcase</h2>
+                </div>
+                <p class="section-subtitle">A curated collection of my engineering projects and creative explorations. Each piece reflects a unique challenge and solution.</p>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item reveal-on-scroll" data-modal-target="modal-drone">
+                        <div class="portfolio-svg-placeholder">
+                            <svg viewBox="0 0 100 100"><path d="M50 10 L90 30 L70 90 L30 90 L10 30 Z M50 10 L50 70 M10 30 L90 30 M30 90 L70 50 L30 50 L70 90" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="50" r="8" fill="currentColor"/></svg>
+                        </div>
+                        <div class="portfolio-item-content"><h3>Autonomous Drone</h3><p>Aerial Robotics & Design</p></div>
+                        <span class="category-tag">Engineering</span>
+                    </div>
+                    <div class="portfolio-item reveal-on-scroll delay-1" data-modal-target="modal-pill">
+                        <div class="portfolio-svg-placeholder">
+                             <svg viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="40" rx="5" stroke="currentColor" stroke-width="5" fill="none"/><path d="M30 50 H70 M50 40 V60" stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/><circle cx="50" cy="15" r="5" fill="currentColor"/><circle cx="40" cy="20" r="3" fill="currentColor"/><circle cx="60" cy="20" r="3" fill="currentColor"/></svg>
+                        </div>
+                        <div class="portfolio-item-content"><h3>Smart Pill Dispenser</h3><p>Healthcare Tech & IoT</p></div>
+                         <span class="category-tag">Innovation</span>
+                    </div>
+                    <div class="portfolio-item reveal-on-scroll delay-2" data-modal-target="modal-solar">
+                        <div class="portfolio-svg-placeholder">
+                             <svg viewBox="0 0 100 100"><path d="M50 10 V30 M50 70 V90 M10 50 H30 M70 50 H90 M20 20 L35 35 M65 65 L80 80 M20 80 L35 65 M65 35 L80 20" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="50" cy="50" r="25" stroke="currentColor" stroke-width="5" fill="none"/><rect x="40" y="40" width="20" height="20" fill="currentColor" rx="3"/></svg>
+                        </div>
+                        <div class="portfolio-item-content"><h3>Solar Efficiency (CPCM)</h3><p>Renewable Energy Research</p></div>
+                         <span class="category-tag">Research</span>
+                    </div>
+                    <div class="portfolio-item reveal-on-scroll delay-3" data-modal-target="modal-aerothon">
+                        <div class="portfolio-svg-placeholder">
+                            <svg viewBox="0 0 100 100"><path d="M10 50 Q30 20 50 50 Q70 80 90 50 L90 30 L70 40 L50 30 L30 40 L10 30 Z" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 50 L50 70" stroke="currentColor" stroke-width="5" fill="none"/></svg>
+                        </div>
+                        <div class="portfolio-item-content"><h3>SAE AeroThon 2023</h3><p>Competitive Aeronautics</p></div>
+                         <span class="category-tag">Competition</span>
+                    </div>
+                    <div class="portfolio-item reveal-on-scroll delay-4" data-modal-target="modal-gokart">
+                        <div class="portfolio-svg-placeholder">
+                            <svg viewBox="0 0 100 100"><circle cx="30" cy="70" r="15" stroke="currentColor" stroke-width="5" fill="none"/><circle cx="70" cy="70" r="15" stroke="currentColor" stroke-width="5" fill="none"/><path d="M15 70 H85 M30 70 L40 40 H60 L70 70 M45 40 L55 40 M50 40 V30 L60 25" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="portfolio-item-content"><h3>Go-Kart Design 2024</h3><p>Automotive Engineering</p></div>
+                        <span class="category-tag">Design</span>
+                    </div>
+                    <div class="portfolio-item reveal-on-scroll" data-modal-target="modal-painting">
+                        <div class="portfolio-svg-placeholder">
+                            <svg viewBox="0 0 100 100"><path d="M20 10 H80 Q90 10 90 20 V80 Q90 90 80 90 H20 Q10 90 10 80 V20 Q10 10 20 10 Z" stroke="currentColor" stroke-width="5" fill="none"/><path d="M30 30 Q50 70 70 30 M30 70 Q50 30 70 70" stroke="currentColor" stroke-width="4" fill="none" stroke-dasharray="5 5" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="portfolio-item-content"><h3>Lalith Kala Akademi</h3><p>Fine Art Exhibition</p></div>
+                        <span class="category-tag">Art</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modals for Portfolio Items -->
+        <div id="modal-drone" class="modal"><div class="modal-content"><span class="modal-close" data-modal-close="modal-drone">×</span><div class="modal-svg-display"><svg viewBox="0 0 100 100"><path d="M50 10 L90 30 L70 90 L30 90 L10 30 Z M50 10 L50 70 M10 30 L90 30 M30 90 L70 50 L30 50 L70 90" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="50" r="8" fill="currentColor"/></svg></div><h3>Autonomous Drone Development</h3><p>This comprehensive project involved the end-to-end design, fabrication, and programming of an autonomous quadcopter. Key challenges included optimizing aerodynamic efficiency, ensuring structural integrity of the lightweight frame, integrating sensors, and developing robust flight control algorithms for autonomous navigation and mission execution.</p><div class="modal-tags"><span>Aerospace Engineering</span><span>Robotics</span><span>CAD/CAM</span><span>Control Systems</span><span>Prototyping</span></div></div></div>
+        <div id="modal-pill" class="modal"><div class="modal-content"><span class="modal-close" data-modal-close="modal-pill">×</span><div class="modal-svg-display"><svg viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="40" rx="5" stroke="currentColor" stroke-width="5" fill="none"/><path d="M30 50 H70 M50 40 V60" stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/><circle cx="50" cy="15" r="5" fill="currentColor"/><circle cx="40" cy="20" r="3" fill="currentColor"/><circle cx="60" cy="20" r="3" fill="currentColor"/></svg></div><h3>Smart Pill Dispensing System</h3><p>Engineered an innovative IoT-enabled smart pill dispenser to enhance medication adherence for patients with chronic conditions. The system features programmable schedules, automated dispensing, user alerts via a mobile application, and potential for remote monitoring by caregivers. This project integrated mechanical design, embedded systems, and software development.</p><div class="modal-tags"><span>Healthcare Technology</span><span>IoT Solutions</span><span>Mechatronics</span><span>UX/UI Design</span><span>Embedded C</span></div></div></div>
+        <div id="modal-solar" class="modal"><div class="modal-content"><span class="modal-close" data-modal-close="modal-solar">×</span><div class="modal-svg-display"><svg viewBox="0 0 100 100"><path d="M50 10 V30 M50 70 V90 M10 50 H30 M70 50 H90 M20 20 L35 35 M65 65 L80 80 M20 80 L35 65 M65 35 L80 20" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="50" cy="50" r="25" stroke="currentColor" stroke-width="5" fill="none"/><rect x="40" y="40" width="20" height="20" fill="currentColor" rx="3"/></svg></div><h3>Solar Efficiency Enhancement (CPCM)</h3><p>A research-oriented project focused on improving the energy conversion efficiency of photovoltaic solar panels. This was achieved by integrating Compound Parabolic Concentrators (CPCs) to maximize solar radiation capture and Phase Change Materials (PCMs) for effective thermal regulation of the panels, thereby mitigating performance degradation due to overheating.</p><div class="modal-tags"><span>Renewable Energy</span><span>Thermal Engineering</span><span>Material Science</span><span>Experimental Research</span><span>Data Analysis</span></div></div></div>
+        <div id="modal-aerothon" class="modal"><div class="modal-content"><span class="modal-close" data-modal-close="modal-aerothon">×</span><div class="modal-svg-display"><svg viewBox="0 0 100 100"><path d="M10 50 Q30 20 50 50 Q70 80 90 50 L90 30 L70 40 L50 30 L30 40 L10 30 Z" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 50 L50 70" stroke="currentColor" stroke-width="5" fill="none"/></svg></div><h3>SAE AeroThon 2023 Participation</h3><p>Represented Team Turbonites Delta as a Pilot in the prestigious SAE AeroThon 2023 competition. This challenging event required designing, fabricating, and skillfully flying a radio-controlled aircraft to accomplish specific mission objectives. The experience fostered skills in aerodynamics, aircraft construction, systems integration, and high-pressure teamwork.</p><div class="modal-tags"><span>Aerospace Design</span><span>Student Competition</span><span>Team Collaboration</span><span>Piloting & Control</span><span>Problem Solving</span></div></div></div>
+        <div id="modal-gokart" class="modal"><div class="modal-content"><span class="modal-close" data-modal-close="modal-gokart">×</span><div class="modal-svg-display"><svg viewBox="0 0 100 100"><circle cx="30" cy="70" r="15" stroke="currentColor" stroke-width="5" fill="none"/><circle cx="70" cy="70" r="15" stroke="currentColor" stroke-width="5" fill="none"/><path d="M15 70 H85 M30 70 L40 40 H60 L70 70 M45 40 L55 40 M50 40 V30 L60 25" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Go-Kart Design Challenge 2024</h3><p>Led the chassis design and fabrication as Head of Frames for Team Turbonites Go-Kart in the Design Challenge 2024. Responsibilities included CAD modeling, finite element analysis (FEA) for structural integrity, material selection, and overseeing the manufacturing of the go-kart frame, ensuring optimal performance, weight distribution, and driver safety.</p><div class="modal-tags"><span>Automotive Design</span><span>CAD/CAE (SolidWorks, ANSYS)</span><span>Welding & Fabrication</span><span>Team Leadership</span><span>Structural Mechanics</span></div></div></div>
+        <div id="modal-painting" class="modal"><div class="modal-content"><span class="modal-close" data-modal-close="modal-painting">×</span><div class="modal-svg-display"><svg viewBox="0 0 100 100"><path d="M20 10 H80 Q90 10 90 20 V80 Q90 90 80 90 H20 Q10 90 10 80 V20 Q10 10 20 10 Z" stroke="currentColor" stroke-width="5" fill="none"/><path d="M30 30 Q50 70 70 30 M30 70 Q50 30 70 70" stroke="currentColor" stroke-width="4" fill="none" stroke-dasharray="5 5" stroke-linecap="round"/></svg></div><h3>Painting Exhibition at Lalith Kala Akademi</h3><p>Successfully exhibited a curated collection of personal paintings at the esteemed Lalith Kala Akademi. This platform provided an opportunity to share my artistic interpretations and engage with the broader art community. My artwork often delves into themes of nature, human emotion, and abstract expression, utilizing various mediums and techniques.</p><div class="modal-tags"><span>Fine Arts</span><span>Art Exhibition</span><span>Creative Expression</span><span>Visual Communication</span><span>Cultural Engagement</span></div></div></div>
+
+        <section id="skills" class="reveal-on-scroll">
+            <div class="container">
+                <div class="section-title"><h2>My Skill Arsenal</h2></div>
+                <p class="section-subtitle">A dynamic fusion of robust technical capabilities, innate creative talents, and indispensable interpersonal skills.</p>
+                <div class="skills-grid">
+                    <div class="skill-card reveal-on-scroll"><i class="fas fa-drafting-compass skill-icon"></i><h4>Technical & Engineering</h4><ul><li>Mechanical Design & Analysis</li><li>Advanced Manufacturing Processes</li><li>Aerodynamics & Fluid Mechanics</li><li>Robotics & Control Systems</li><li>CAD/CAM/CAE Proficiency</li><li>Prototyping & Testing</li></ul></div>
+                    <div class="skill-card reveal-on-scroll delay-1"><i class="fas fa-lightbulb skill-icon"></i><h4>Creative & Visual</h4><ul><li>Professional Photography</li><li>Fine Arts (Painting & Sketching)</li><li>Videography & Editing</li><li>Graphic Design Fundamentals</li><li>UI/UX Conceptualization</li><li>Visual Storytelling</li></ul></div>
+                    <div class="skill-card reveal-on-scroll delay-2"><i class="fas fa-laptop-code skill-icon"></i><h4>Software & Digital</h4><p><strong>Languages:</strong> Python (Scientific Computing, Automation), C/C++ (Embedded Systems)</p><div class="software-list"><span>SolidWorks</span><span>AutoCAD</span><span>ANSYS</span><span>MATLAB</span><span>PrusaSlicer</span><span>Adobe CC (Photoshop, Lightroom, Premiere Pro)</span><span>Figma (Basic)</span></div></div>
+                    <div class="skill-card reveal-on-scroll delay-3"><i class="fas fa-hands-helping skill-icon"></i><h4>Soft Skills & Competencies</h4><ul><li>Strategic Leadership</li><li>Agile Adaptability</li><li>Complex Problem Solving</li><li>Innovative Design Thinking</li><li>Proactive Risk Management</li><li>Effective Communication</li><li>Cross-functional Teamwork</li></ul></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workshops" class="reveal-on-scroll">
+            <div class="container">
+                <div class="section-title"><h2>Workshops & Certifications</h2></div>
+                 <p class="section-subtitle">Dedicated to continuous professional development through targeted workshops and specialized courses.</p>
+                <div class="workshops-list">
+                    <div class="workshop-item reveal-on-scroll"><h4>Advanced Entrepreneurship & Innovation Bootcamp</h4><p class="issuer">Wadhwani Foundation & NEN</p><p>Intensive program on venture creation, market analysis, financial modeling, and pitching innovative business ideas.</p></div>
+                    <div class="workshop-item reveal-on-scroll delay-1"><h4>Transformational Leadership Program</h4><p class="issuer">LIBA (Loyola Institute of Business Administration) - Executive Education</p><p>Focused on developing core leadership competencies, strategic decision-making, team motivation, and change management.</p></div>
+                    <div class="workshop-item reveal-on-scroll delay-2"><h4>Certified SolidWorks Associate (CSWA) - Mechanical Design</h4><p class="issuer">Dassault Systèmes (Self-study, Example)</p><p>Demonstrated proficiency in 3D CAD modeling, assembly creation, and drawing generation using SolidWorks.</p></div>
+                     <div class="workshop-item reveal-on-scroll delay-3"><h4>Python for Data Science & Machine Learning</h4><p class="issuer">Coursera / Udemy (Example)</p><p>Completed coursework on Python programming for data analysis, visualization, and foundational machine learning algorithms.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="reveal-on-scroll">
+            <div class="container">
+                <div class="section-title"><h2>Leadership & Engagement</h2></div>
+                <p class="section-subtitle">Actively contributing to and leading initiatives beyond academics, fostering teamwork, innovation, and community spirit.</p>
+                <div class="activities-grid">
+                    <div class="activity-card reveal-on-scroll"><h4>Team Turbonites (Aeronautics & Automotive)</h4><ul><li>Lead Pilot & Aerodynamics Head (SAE AeroThon 2023)</li><li>Chief FPV Systems Engineer & Integration Lead</li><li>Head of Chassis Design & Structural Analysis (Go-Kart 2024)</li><li>Social Media & Outreach Coordinator</li></ul></div>
+                    <div class="activity-card reveal-on-scroll delay-1"><h4>College Governance & Events</h4><ul><li>Cultural Secretary (Student Council, 2019-2021, School)</li><li>Joint Secretary, Engenia Tech Fest (LICET, 2023)</li><li>Coordinator, Photography & Design Club</li></ul></div>
+                    <div class="activity-card reveal-on-scroll delay-2"><h4>National Cadet Corps (NCC) - Air Wing</h4><ul><li>"A" Certification with Distinction</li><li>Participated in state-level drill and firing competitions.</li><li>Organized community service and awareness campaigns.</li></ul></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hobbies" class="reveal-on-scroll">
+            <div class="container">
+                <div class="section-title"><h2>Creative Pursuits</h2></div>
+                <p class="section-subtitle">Exploring diverse passions that fuel creativity, offer new perspectives, and enrich my approach to problem-solving.</p>
+                <div class="hobbies-container">
+                    <div class="hobby-item reveal-on-scroll"><div class="hobby-icon-wrapper"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h3l2-2h6l2 2h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m8 3a5 5 0 0 0-5 5a5 5 0 0 0 5 5a5 5 0 0 0 5-5a5 5 0 0 0-5-5m0 2a3 3 0 0 1 3 3a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3Z"/></svg></div><p>Photography</p></div>
+                    <div class="hobby-item reveal-on-scroll delay-1"><div class="hobby-icon-wrapper"><svg viewBox="0 0 24 24"><path fill="currentColor" d="m19.41 7.41l-4.83-4.83c-.37-.37-.88-.58-1.41-.58H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.83c0-.53-.21-1.04-.59-1.42M14 18c-2.21 0-4-1.79-4-4s1.79-4 4-4s4 1.79 4 4s-1.79 4-4 4m-7.5-6.5S9 9 11.5 9S14 11.5 14 11.5S11.5 14 11.5 14S9 14 6.5 11.5Z"/></svg></div><p>Digital Art</p></div>
+                    <div class="hobby-item reveal-on-scroll delay-2"><div class="hobby-icon-wrapper"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4M15 16H5V8h10Z"/></svg></div><p>Videography</p></div>
+                    <div class="hobby-item reveal-on-scroll delay-3"><div class="hobby-icon-wrapper"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m5 11h-4v4h-2v-4H7v-2h4V7h2v4h4Z"/></svg></div><p>3D Modeling</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="reveal-on-scroll">
+            <div class="container">
+                <div class="section-title"><h2>Let's Connect</h2></div>
+                <div class="contact-content">
+                    <p>I am enthusiastic about discussing new projects, innovative ideas, or potential collaborations. Please feel free to reach out!</p>
+                    <div class="contact-info-grid">
+                        <div class="contact-info-item reveal-on-scroll"><i class="fas fa-mobile-alt"></i><h4>Call Me</h4><a href="tel:6381215568">6381215568</a></div>
+                        <div class="contact-info-item reveal-on-scroll delay-1"><i class="fas fa-at"></i><h4>Email Me</h4><a href="mailto:hemanthkumar.25mea@licet.ac.in">hemanthkumar.25mea@licet.ac.in</a></div>
+                        <div class="contact-info-item reveal-on-scroll delay-2"><i class="fab fa-linkedin-in"></i><h4>LinkedIn</h4><a href="https://linkedin.com/in/hemanth-kumar" target="_blank" rel="noopener noreferrer">linkedin.com/in/hemanth-kumar</a></div>
+                    </div>
+                     <a href="mailto:hemanthkumar.25mea@licet.ac.in" class="cta-button">Send A Message</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="#hero" class="footer-logo"><strong>HEMANTH</strong> <span>KUMAR R</span></a>
+            <div class="footer-social-links">
+                 <a href="tel:6381215568" aria-label="Call Hemanth"><i class="fas fa-phone-alt"></i></a>
+                <a href="mailto:hemanthkumar.25mea@licet.ac.in" aria-label="Email Hemanth"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/hemanth-kumar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>© <span id="current-year"></span> <strong>HEMANTH</strong> KUMAR R. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart heart-icon"></i> and a blend of precision & pixels.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinksContainer = document.getElementById('nav-links');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id], header[id]');
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const hobbyItems = document.querySelectorAll('.hobby-item');
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 70) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        menuToggle.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            document.body.style.overflow = navLinksContainer.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinksContainer.classList.contains('active')) {
+                    navLinksContainer.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Smooth Scrolling & Active Nav Link Highlighting
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.length > 1) { // Check if it's not just "#"
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const navbarHeight = navbar.offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+                        
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+
+                        if (window.innerWidth <= 768 && navLinksContainer.classList.contains('active')) {
+                            navLinksContainer.classList.remove('active');
+                            menuToggle.classList.remove('active');
+                             document.body.style.overflow = '';
+                        }
+                    }
+                }
+            });
+        });
+        
+        function highlightNavLink() {
+            let currentSectionId = '';
+            const navbarHeight = navbar.offsetHeight;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navbarHeight - 150;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+            if (!currentSectionId && window.pageYOffset < sections[0].offsetTop - navbarHeight -150 ) {
+                 currentSectionId = 'hero';
+            }
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href && href.substring(1) === currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', highlightNavLink);
+        highlightNavLink();
+
+        // Intersection Observer for general reveals, timeline, and hobbies
+        const observerCallback = (entries, observerInstance) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('timeline-item') || entry.target.classList.contains('hobby-item')) {
+                        // Stagger animations for timeline and hobby items
+                        entry.target.style.transitionDelay = `${index * 0.15}s`;
+                    }
+                    entry.target.classList.add(entry.target.classList.contains('timeline-item') || entry.target.classList.contains('hobby-item') ? 'animate-in' : 'is-visible');
+                    observerInstance.unobserve(entry.target); 
+                }
+            });
+        };
+
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        revealElements.forEach(el => observer.observe(el));
+        timelineItems.forEach(el => observer.observe(el));
+        hobbyItems.forEach(el => observer.observe(el));
+
+        // Portfolio Modal Logic
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const modals = document.querySelectorAll('.modal');
+        
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const modalId = item.getAttribute('data-modal-target');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => modal.querySelector('.modal-content').style.opacity = 1, 50); // For transition
+                }
+            });
+        });
+
+        modals.forEach(modal => {
+            const closeButton = modal.querySelector('.modal-close');
+            if (closeButton) {
+                closeButton.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                modals.forEach(modal => {
+                    if (modal.style.display === 'flex') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    });
+    </script>
+</body>
+</html>
