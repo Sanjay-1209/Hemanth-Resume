@@ -663,6 +663,118 @@
         .modal-tags span:hover { background-color: var(--accent-primary); color: var(--bg-deep-void); }
 
 
+        /* Gallery Section */
+        #gallery { background-color: var(--bg-primary); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px var(--dark-shadow-color);
+            cursor: pointer;
+            aspect-ratio: 16 / 9;
+            transition: transform var(--transition-medium) var(--transition-ease), box-shadow var(--transition-medium) var(--transition-ease);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow) var(--transition-ease), filter var(--transition-medium) var(--transition-ease);
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px var(--dark-shadow-color), 0 0 20px var(--shadow-color);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.7);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 15, 20, 0.9) 0%, transparent 100%);
+            color: var(--text-headings);
+            padding: 40px 20px 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity var(--transition-medium) var(--transition-ease), transform var(--transition-medium) var(--transition-ease);
+            text-align: left;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gallery-overlay h3 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-family: var(--font-heading);
+            color: var(--accent-primary);
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            padding: 50px 20px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(5, 8, 13, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            animation: lightboxFadeIn 0.5s;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes lightboxFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            animation: modalZoomIn 0.5s var(--transition-bounce);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 45px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 3001;
+        }
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: var(--accent-tertiary);
+            text-decoration: none;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        .lightbox-caption {
+            margin: 15px auto 0;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+        }
+        
+
         /* Skills Section - Modern Grid */
         #skills { background-color: var(--bg-primary); }
         .skills-grid {
@@ -932,7 +1044,7 @@
             .about-content { grid-template-columns: 1fr; text-align: center; }
             .about-svg-container { max-width: 300px; margin-bottom: 40px; }
             .about-details ul li { justify-content: center; }
-            .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            .portfolio-grid, .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
         }
 
         @media (max-width: 768px) {
@@ -1005,6 +1117,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#education" class="nav-link">Journey</a></li>
                 <li><a href="#portfolio" class="nav-link">Showcase</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#activities" class="nav-link">Activities</a></li>
                 <li><a href="#hobbies" class="nav-link">Passions</a></li>
@@ -1219,6 +1332,70 @@
         <div id="modal-gokart" class="modal"><div class="modal-content"><span class="modal-close" data-modal-close="modal-gokart">×</span><div class="modal-svg-display"><svg viewBox="0 0 100 100"><circle cx="30" cy="70" r="15" stroke="currentColor" stroke-width="5" fill="none"/><circle cx="70" cy="70" r="15" stroke="currentColor" stroke-width="5" fill="none"/><path d="M15 70 H85 M30 70 L40 40 H60 L70 70 M45 40 L55 40 M50 40 V30 L60 25" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Go-Kart Design Challenge 2024</h3><p>Led the chassis design and fabrication as Head of Frames for Team Turbonites Go-Kart in the Design Challenge 2024. Responsibilities included CAD modeling, finite element analysis (FEA) for structural integrity, material selection, and overseeing the manufacturing of the go-kart frame, ensuring optimal performance, weight distribution, and driver safety.</p><div class="modal-tags"><span>Automotive Design</span><span>CAD/CAE (SolidWorks, ANSYS)</span><span>Welding & Fabrication</span><span>Team Leadership</span><span>Structural Mechanics</span></div></div></div>
         <div id="modal-painting" class="modal"><div class="modal-content"><span class="modal-close" data-modal-close="modal-painting">×</span><div class="modal-svg-display"><svg viewBox="0 0 100 100"><path d="M20 10 H80 Q90 10 90 20 V80 Q90 90 80 90 H20 Q10 90 10 80 V20 Q10 10 20 10 Z" stroke="currentColor" stroke-width="5" fill="none"/><path d="M30 30 Q50 70 70 30 M30 70 Q50 30 70 70" stroke="currentColor" stroke-width="4" fill="none" stroke-dasharray="5 5" stroke-linecap="round"/></svg></div><h3>Painting Exhibition at Lalith Kala Akademi</h3><p>Successfully exhibited a curated collection of personal paintings at the esteemed Lalith Kala Akademi. This platform provided an opportunity to share my artistic interpretations and engage with the broader art community. My artwork often delves into themes of nature, human emotion, and abstract expression, utilizing various mediums and techniques.</p><div class="modal-tags"><span>Fine Arts</span><span>Art Exhibition</span><span>Creative Expression</span><span>Visual Communication</span><span>Cultural Engagement</span></div></div></div>
 
+        <section id="gallery" class="reveal-on-scroll">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Gallery</h2>
+                </div>
+                <p class="section-subtitle">A visual journey through my projects, competitions, and hands-on experiences.</p>
+                <div class="gallery-grid">
+                    <!-- GKDC Photos -->
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="GKDC 2025/GKDC (2).jpeg" alt="GKDC Go-Kart Team" loading="lazy">
+                        <div class="gallery-overlay"><h3>GKDC 2025</h3></div>
+                    </div>
+                    <div class="gallery-item reveal-on-scroll delay-1">
+                        <img src="GKDC 2025/GKDC 2024 (1).jpeg" alt="GKDC Go-Kart on track" loading="lazy">
+                         <div class="gallery-overlay"><h3>GKDC 2024</h3></div>
+                    </div>
+                    <div class="gallery-item reveal-on-scroll delay-2">
+                        <img src="GKDC 2025/GKDC 2024.jpeg" alt="GKDC Go-Kart preparation" loading="lazy">
+                         <div class="gallery-overlay"><h3>GKDC 2024</h3></div>
+                    </div>
+                    <div class="gallery-item reveal-on-scroll delay-3">
+                        <img src="GKDC 2025/Technical inspection GKDC.jpeg" alt="Technical inspection at GKDC" loading="lazy">
+                        <div class="gallery-overlay"><h3>Tech Inspection</h3></div>
+                    </div>
+                    
+                    <!-- SAE Drone Photos -->
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="SAE Drone/Aerothon 2023(2).jpeg" alt="SAE Aerothon 2023" loading="lazy">
+                        <div class="gallery-overlay"><h3>Aerothon 2023</h3></div>
+                    </div>
+                    <div class="gallery-item reveal-on-scroll delay-1">
+                        <img src="SAE Drone/Aerothon 2023.jpeg" alt="SAE Aerothon 2023 Team" loading="lazy">
+                        <div class="gallery-overlay"><h3>Aerothon 2023</h3></div>
+                    </div>
+                    <div class="gallery-item reveal-on-scroll delay-2">
+                        <img src="SAE Drone/Aerothon design presentation.jpeg" alt="SAE Aerothon design presentation" loading="lazy">
+                        <div class="gallery-overlay"><h3>Design Presentation</h3></div>
+                    </div>
+                     <div class="gallery-item reveal-on-scroll delay-3">
+                        <img src="SAE Drone/Aeroton 2023 (1).jpeg" alt="Aeroton 2023" loading="lazy">
+                        <div class="gallery-overlay"><h3>Aeroton 2023</h3></div>
+                    </div>
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="SAE Drone/design presentation.jpeg" alt="Design presentation for SAE drone" loading="lazy">
+                        <div class="gallery-overlay"><h3>Design Presentation</h3></div>
+                    </div>
+                    <div class="gallery-item reveal-on-scroll delay-1">
+                        <img src="SAE Drone/SAE Aerothon.jpeg" alt="SAE Aerothon event" loading="lazy">
+                        <div class="gallery-overlay"><h3>SAE Aerothon</h3></div>
+                    </div>
+    
+                    <!-- Projects Photos -->
+                    <div class="gallery-item reveal-on-scroll delay-2">
+                        <img src="Projects/Composites Fiber Project IIT.jpg" alt="Composites Fiber Project at IIT" loading="lazy">
+                         <div class="gallery-overlay"><h3>Composites Project</h3></div>
+                    </div>
+                    <div class="gallery-item reveal-on-scroll delay-3">
+                        <img src="Projects/Test Setup.jpg" alt="Project Test Setup" loading="lazy">
+                        <div class="gallery-overlay"><h3>Test Setup</h3></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="skills" class="reveal-on-scroll">
             <div class="container">
                 <div class="section-title"><h2>My Skill Arsenal</h2></div>
@@ -1285,6 +1462,14 @@
             </div>
         </section>
     </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox">
+        <span class="lightbox-close">×</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged gallery image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
 
     <footer>
         <div class="container">
@@ -1438,14 +1623,61 @@
             });
         });
         
+        // Gallery Lightbox Logic
+        const lightbox = document.getElementById('lightbox-modal');
+        if (lightbox) {
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const img = item.querySelector('img');
+                    const caption = item.querySelector('.gallery-overlay h3');
+                    lightbox.style.display = 'flex';
+                    lightboxImg.src = img.src;
+                    lightboxCaption.innerHTML = caption ? caption.innerHTML : img.alt;
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            const closeLightbox = () => {
+                if(lightbox.style.display !== 'none') {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            };
+            
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', closeLightbox);
+            }
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+        }
+
+
         window.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
+                // Close portfolio modals
                 modals.forEach(modal => {
                     if (modal.style.display === 'flex') {
                         modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
                     }
                 });
+
+                // Close gallery lightbox
+                const lightbox = document.getElementById('lightbox-modal');
+                if (lightbox && lightbox.style.display === 'flex') {
+                    lightbox.style.display = 'none';
+                }
+
+                // Restore body scroll if all modals are closed
+                document.body.style.overflow = 'auto';
             }
         });
 
